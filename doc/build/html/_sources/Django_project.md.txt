@@ -21,7 +21,6 @@
 1. 避免多个项目之间 Python 库的冲突
 2. 完整便捷导出 Python 库的列表
 
-
 ```shell
 $ mkvirtualenv django_mysite_env
 $ workon django_mysite_env

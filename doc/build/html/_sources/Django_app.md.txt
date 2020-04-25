@@ -1,9 +1,9 @@
 
 # Django 基本应用结构
 
-### 1.Django APP
+## 1.Django APP
 
-#### 1.1 创建 APP
+### 1.1 创建 APP
 
 ```shell
 $ python3 manage.py startapp article
@@ -32,7 +32,7 @@ Django_demo
   └── manage.py
 ```
 
-#### 1.2 创建 APP 模型
+### 1.2 创建 APP 模型
 
 编辑 `./Django_demo/article/models.py`：
 
@@ -45,7 +45,7 @@ class Article(models.Model):
     content = models.TextField()                   # 内容
 ```
 
-#### 1.2 同步数据库
+### 1.3 同步数据库
 
 1.注册 APP
 
@@ -97,7 +97,7 @@ Django_demo
   └── manage.py
 ```
 
-#### 1.3 APP 配置
+### 1.4 APP 配置
 
 启动服务：
 
@@ -135,7 +135,7 @@ admin.site.register(Article)
 LANGUAGE_CODE = 'zh-Han'
 ```
 
-### 报错及修复
+## 2.报错及修复
 
 1. 报错信息
 
