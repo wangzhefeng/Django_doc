@@ -162,6 +162,7 @@
 <p>## 1.Django APP</p>
 <p>### 1.1 创建 APP</p>
 <p><code class="docutils literal notranslate"><span class="pre">`shell</span>
+<span class="pre">$</span> <span class="pre">cd</span> <span class="pre">./PyWeb/Django_demo/</span>
 <span class="pre">$</span> <span class="pre">python3</span> <span class="pre">manage.py</span> <span class="pre">startapp</span> <span class="pre">article</span>
 <span class="pre">`</span></code></p>
 <p>项目结构：</p>
@@ -188,19 +189,19 @@ Django_demo</p>
 </div></blockquote>
 <p><a href="#id3"><span class="problematic" id="id4">``</span></a><a href="#id5"><span class="problematic" id="id6">`</span></a></p>
 <p>### 1.2 创建 APP 模型</p>
-<p>编辑 <cite>./Django_demo/article/models.py</cite>：</p>
+<p>&gt; 编辑 <cite>./Django_demo/Django_demo/article/models.py</cite>：</p>
 <p><a href="#id7"><span class="problematic" id="id8">``</span></a><a href="#id9"><span class="problematic" id="id10">`</span></a>python
 from django.db import models</p>
 <p># Create your models here.
 class Article(models.Model):</p>
 <blockquote>
 <div><p>title = models.CharField(max_length = 30) # 标题
-content = models.TextField()                   # 内容</p>
+content = models.TextField()              # 内容</p>
 </div></blockquote>
 <p><a href="#id11"><span class="problematic" id="id12">``</span></a><a href="#id13"><span class="problematic" id="id14">`</span></a></p>
 <p>### 1.3 同步数据库</p>
 <p>1.注册 APP</p>
-<p>编辑 <cite>Django_demo/Django_demo/setting.py</cite></p>
+<p>&gt; 编辑 <cite>./Django_demo/Django_demo/setting.py</cite></p>
 <p><a href="#id15"><span class="problematic" id="id16">``</span></a><a href="#id17"><span class="problematic" id="id18">`</span></a>python
 INSTALLED_APPS = [</p>
 <blockquote>
@@ -217,8 +218,6 @@ INSTALLED_APPS = [</p>
 <p>2.数据库迁移：</p>
 <p><code class="docutils literal notranslate"><span class="pre">`shell</span>
 <span class="pre">$</span> <span class="pre">python3</span> <span class="pre">manage.py</span> <span class="pre">makemigrations</span>
-<span class="pre">`</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">`shell</span>
 <span class="pre">$</span> <span class="pre">python3</span> <span class="pre">manage.py</span> <span class="pre">migrate</span>
 <span class="pre">`</span></code></p>
 <p>项目结构：</p>
@@ -250,12 +249,12 @@ Django_demo</p>
 <p><code class="docutils literal notranslate"><span class="pre">`shell</span>
 <span class="pre">$</span> <span class="pre">python3</span> <span class="pre">manage.py</span> <span class="pre">runserver</span>
 <span class="pre">`</span></code></p>
-<p>进入 admin 页面</p>
+<p>进入 admin 页面：</p>
 <p><code class="docutils literal notranslate"><span class="pre">`</span>
 <span class="pre">http://localhost:8000/admin/</span>
 <span class="pre">`</span></code></p>
-<p>使 APP 在后台页面显示</p>
-<p>编辑 <cite>.Django_deom/article/admin.py</cite>：</p>
+<p>使 APP 在后台页面显示：</p>
+<p>&gt; 编辑 <cite>./Django_demo/Django_deom/article/admin.py</cite></p>
 <p><a href="#id26"><span class="problematic" id="id27">``</span></a><a href="#id28"><span class="problematic" id="id29">`</span></a>python
 from django.contrib import admin
 from .models import Article</p>
@@ -273,11 +272,9 @@ admin.site.register(Article)
 <span class="pre">LANGUAGE_CODE</span> <span class="pre">=</span> <span class="pre">'zh-Han'</span>
 <span class="pre">`</span></code></p>
 <p>## 2.报错及修复</p>
-<ol class="arabic simple">
-<li><p>报错信息</p></li>
-</ol>
+<p>### 2.1 报错信息</p>
 <p>![](../images/error_1.png)</p>
-<p>2.解决方法</p>
+<p>### 2.2 解决方法</p>
 <p>第一步：更新 Django 到 <cite>2.1.5</cite> 版本</p>
 <p><code class="docutils literal notranslate"><span class="pre">`shell</span>
 <span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">Django==2.1.5</span>

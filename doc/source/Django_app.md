@@ -6,6 +6,7 @@
 ### 1.1 创建 APP
 
 ```shell
+$ cd ./PyWeb/Django_demo/
 $ python3 manage.py startapp article
 ```
 
@@ -34,7 +35,7 @@ Django_demo
 
 ### 1.2 创建 APP 模型
 
-编辑 `./Django_demo/article/models.py`：
+> 编辑 `./Django_demo/Django_demo/article/models.py`：
 
 ```python
 from django.db import models
@@ -42,14 +43,14 @@ from django.db import models
 # Create your models here.
 class Article(models.Model):
     title = models.CharField(max_length = 30) # 标题
-    content = models.TextField()                   # 内容
+    content = models.TextField()              # 内容
 ```
 
 ### 1.3 同步数据库
 
 1.注册 APP
 
-编辑 `Django_demo/Django_demo/setting.py`
+> 编辑 `./Django_demo/Django_demo/setting.py`
 
 ```python
 INSTALLED_APPS = [
@@ -67,9 +68,6 @@ INSTALLED_APPS = [
 
 ```shell
 $ python3 manage.py makemigrations
-```
-
-```shell
 $ python3 manage.py migrate
 ```
 
@@ -105,15 +103,15 @@ Django_demo
 $ python3 manage.py runserver
 ```
 
-进入 admin 页面
+进入 admin 页面：
 
 ```
 http://localhost:8000/admin/
 ```
 
-使 APP 在后台页面显示
+使 APP 在后台页面显示：
 
-编辑 `.Django_deom/article/admin.py`：
+> 编辑 `./Django_demo/Django_deom/article/admin.py`
 
 ```python
 from django.contrib import admin
@@ -137,11 +135,11 @@ LANGUAGE_CODE = 'zh-Han'
 
 ## 2.报错及修复
 
-1. 报错信息
+### 2.1 报错信息
 
 ![](../images/error_1.png)
 
-2.解决方法
+### 2.2 解决方法
 
 第一步：更新 Django 到 `2.1.5` 版本
 
