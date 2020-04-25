@@ -11,14 +11,14 @@ Welcome to Django's documentation!
    :caption: Contents:
 
    Django_install
-   Django_project
    Django_hello_world
    Django_app
+   Django_template
    Django_backend
    Django_web_dev
+   Django_project
    Django_template_filter
    Django_template_nest
-   Django_template
 
 
 
