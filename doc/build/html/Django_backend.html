@@ -1,0 +1,297 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; Django 1.0 alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="Django_web_dev.html" />
+    <link rel="prev" title="]" href="Django_app.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Django
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Django_project.html">]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Django_hello_world.html">]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Django_app.html">]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Django_template.html">]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Django_template.html#id26">]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Django_template.html#id63">]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Django_template.html#id76">]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Django_template.html#id81">]</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Django</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Django_backend.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p># 后台定制和修改模型</p>
+<p>## 1.定制 admin 后台</p>
+<ul class="simple">
+<li><p>设置模型 <cite>__str__</cite></p></li>
+<li><p>定制 <cite>admin</cite></p></li>
+</ul>
+<p><cite>./Django_demo/article/models.py</cite>：</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>python
+from django.db import models</p>
+<p># Create your models here.
+class Article(models.Model):</p>
+<blockquote>
+<div><p>title = models.CharField(max_length = 30)
+content = models.TextField()</p>
+<dl class="simple">
+<dt>def __str__(self):</dt><dd><p>return “&lt;Article: %s&gt;” % self.title</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a></p>
+<p><cite>./Django_demo/article/admin.py</cite>：</p>
+<p><a href="#id9"><span class="problematic" id="id10">``</span></a><a href="#id11"><span class="problematic" id="id12">`</span></a>python
+from django.contrib import admin
+from .models import Article</p>
+<p># Register your models here.
+&#64;admin.register(Article)
+class ArticleAdmin(admin.ModelAdmin):</p>
+<blockquote>
+<div><p>list_display = (“id”, “title”, “content”)
+ordering = (“id”,)
+# ordering = (“-id”,)</p>
+</div></blockquote>
+<p># admin.site.register(Article, ArticleAdmin)
+<a href="#id13"><span class="problematic" id="id14">``</span></a><a href="#id15"><span class="problematic" id="id16">`</span></a></p>
+<p>## 2.修改模型</p>
+<p>修改模型:</p>
+<p><cite>./Django_demo/article/models.py</cite>：</p>
+<p><a href="#id17"><span class="problematic" id="id18">``</span></a><a href="#id19"><span class="problematic" id="id20">`</span></a>python
+# method 1
+from django.db import models
+from django.utils import timezone</p>
+<p># Create your models here.
+class Article(models.Model):</p>
+<blockquote>
+<div><p>title = models.CharField(max_length = 30)
+content = models.TextField()
+created_time = models.DateTimeField(default = timezone.now)</p>
+<dl class="simple">
+<dt>def __str__(self):</dt><dd><p>return “&lt;Article: %s&gt;” % self.title</p>
+</dd>
+</dl>
+</div></blockquote>
+<p># method 2
+from django.db import models
+from django.utils import timezone</p>
+<p># Create your models here.
+class Article(models.Model):</p>
+<blockquote>
+<div><p>title = models.CharField(max_length = 30)
+content = models.TextField()
+created_time = models.DateTimeField(auto_now_add = True)</p>
+<dl class="simple">
+<dt>def __str__(self):</dt><dd><p>return “&lt;Article: %s&gt;” % self.title</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><a href="#id21"><span class="problematic" id="id22">``</span></a><a href="#id23"><span class="problematic" id="id24">`</span></a></p>
+<p><cite>./Django_demo/article/admin.py</cite>：</p>
+<p><a href="#id25"><span class="problematic" id="id26">``</span></a><a href="#id27"><span class="problematic" id="id28">`</span></a>python
+from django.contrib import admin
+from .models import Article</p>
+<p># Register your models here.
+&#64;admin.register(Article)
+class ArticleAdmin(admin.ModelAdmin):</p>
+<blockquote>
+<div><p>list_display = (“id”, “title”, “content”, “created_time”)
+ordering = (“id”,)
+# ordering = (“-id”,)</p>
+</div></blockquote>
+<p># admin.site.register(Article, ArticleAdmin)
+<a href="#id29"><span class="problematic" id="id30">``</span></a><a href="#id31"><span class="problematic" id="id32">`</span></a></p>
+<p>更新数据库：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`shell</span>
+<span class="pre">$</span> <span class="pre">python3</span> <span class="pre">manage.py</span> <span class="pre">makemigrations</span>
+<span class="pre">$</span> <span class="pre">python3</span> <span class="pre">manage.py</span> <span class="pre">migrate</span>
+<span class="pre">`</span></code></p>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Django_web_dev.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Django_app.html" class="btn btn-neutral float-left" title="]" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, wangzf
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
