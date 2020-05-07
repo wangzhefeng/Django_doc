@@ -11,6 +11,8 @@
 
 ## 2.常用的模板标签
 
+* 元素
+    - `{% element %}`
 * 循环
     - `for`
 * 条件
@@ -18,9 +20,10 @@
 * 链接
     - `url`
 * 模板嵌套
-    - `block`、`entends`、`include`
+    - `block`、`extends`、`include`
 * 注释
     - `{# #}`
+
 
 ## 3.常用的过滤器
 
@@ -28,7 +31,7 @@
     - date
 * 字数截取
     - truncatechars
-    - truncatecahrs_html
+    - truncatechars_html
     - truncatewords
     - truncatewords_html
 * 是否信任 html

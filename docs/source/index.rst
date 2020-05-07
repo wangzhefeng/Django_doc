@@ -19,6 +19,8 @@ Welcome to Django's documentation!
    Django_project
    Django_template_filter
    Django_template_nest
+   Django_CSS
+   MySQL
 
 
 
