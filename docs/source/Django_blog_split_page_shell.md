@@ -132,9 +132,20 @@ def blog_list(request):
 
     context = {}
     # context["blogs"] = Blog.objects.all()
-    # context["blogs"] = page_of_blogs.object_list
+    context["blogs"] = page_of_blogs.object_list
     context["blog_types"] = BlogType.objects.all()
     context["page_of_blogs"] = page_of_blogs
     context["blogs_count"] = Blog.objects.all().count()
     return render_to_response("blog/blog_list.html", context)
 ```
+
+
+## 3.优化分页展示
+
+友好的用户体验：
+
+* 当前页高亮
+* 不要过多页码选择，影响页面布局
+
+
+
