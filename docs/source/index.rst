@@ -21,14 +21,3 @@ Welcome to Django's documentation!
    Django_template_nest
    Django_CSS
    MySQL
-
-
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
